@@ -2,7 +2,7 @@ class ArtikelTag extends React.Component {
   render = () => {
     return (
       <div>
-        // ToDo: füge hier Deinen HTML-Code ein
+        <dd><label><input type="checkbox"/> Artikel</label></dd>
       </div>
     )
   }

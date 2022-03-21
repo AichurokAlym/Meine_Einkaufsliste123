@@ -2,7 +2,12 @@ class GruppenTag extends React.Component {
   render = () => {
     return (
       <div>
-        // ToDo: füge hier Deinen HTML-Code ein
+          <dt>Gruppe
+              <i className="material-icons">expand_less</i>
+          </dt>
+          <ArtikelTag/>
+          <ArtikelTag/>
+          <ArtikelTag/>
       </div>
     )
   }
