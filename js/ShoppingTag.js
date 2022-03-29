@@ -13,12 +13,12 @@ class ShoppingTag extends React.Component {
         art.gekauft = true
 
 
-
-
         this.state = {
-        aktiveGruppe: null
+            aktiveGruppe: null
+        }
     }
-}
+
+
     setAktiveGruppe = (gruppenId) =>{
         App.aktiveGruppe = gruppenId
     this.setState({aktiveGruppe: App.aktiveGruppe})
