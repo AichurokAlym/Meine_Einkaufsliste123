@@ -7,12 +7,17 @@ class Unlike_Button extends React.Component{
 
     render = () => {
 
-        /*ToDo: Füge hier eine if-Anweisung hinzu, die "Gefällt mir nicht mehr." zurückgibt, wenn sich der state zu unliked verändert */
-
-
+        if (this.state.liked){
+            return(
+                <div>
+                "Gefällt mir nicht mehr."
+                </div>
+                    )
+    }
         return (
             <div>
-                <!-- ToDo: Füge hier HTML-Code ein, der einen "Gefällt Mir Nicht Mehr"-Button beinhaltet und ein onClick-Even verarbeitet -->
+                <button onClick={() => this.setState({ liked: true }) }>Gefällt mir nicht mehr!</button>
+
             </div>
 
         );

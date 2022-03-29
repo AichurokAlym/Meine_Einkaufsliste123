@@ -3,11 +3,11 @@ class Counter extends React.Component{
     constructor(props) {
         super(props);
         /*ToDO: Setze hier den initialen state von counter auf 0 */
-
+        this.state = {counter: 0}
     }
 
     increaseCounter = () => {
-        /*ToDO: Erhöhe hier den aktuellen state von counter um +1 */
+        this.setState({counter: this.state.counter +1})
 
         console.log("counter: ", this.state.counter);
     };
@@ -15,9 +15,11 @@ class Counter extends React.Component{
     render = () => {
         return (
              <div>
-                <!-- ToDo: Füge hier HTML-Code ein, der einen "Gefällt mir"-Button beinhaltet, welcher ein onClick-Even verarbeitet -->
+                 <button onClick={this.increaseCounter}>Like Counter!</button>
 
-                <!-- ToDo: Außerdem soll der counter in einem passenden HTML-Element angezeit werden -->
+
+
+                 {this.state.counter}
             </div>
 
         );

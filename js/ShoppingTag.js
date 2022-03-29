@@ -1,13 +1,29 @@
 class ShoppingTag extends React.Component {
-    constructor() {
-        super();
-        let gruppe1 = App.gruppeHinzufuegen("Obst & Gemüse")
-        gruppe1.artikelHinzufuegen("Apfel", "Banane")
-        let gruppe2 = App.gruppeHinzufuegen("Getreide produkte")
-        gruppe2.artikelHinzufuegen("Brot")
-        let gruppe3 = App.gruppeHinzufuegen("Milchprodukte")
-        gruppe3.artikelHinzufuegen("Milch")
+    constructor(props) {
+        super(props)
+
+        let grp
+        grp = App.gruppeHinzufuegen("Obst & Gemüse")
+        grp.artikelHinzufuegen("Apfel", "Banane")
+        grp = App.gruppeHinzufuegen("Getreide produkte")
+        grp.artikelHinzufuegen("Brot")
+        grp = App.gruppeHinzufuegen("Milchprodukte")
+        grp.artikelHinzufuegen("Milch")
+        let art = grp.artikelHinzufuegen("Linsen")
+        art.gekauft = true
+
+
+
+
+        this.state = {
+        aktiveGruppe: null
     }
+}
+    setAktiveGruppe = (gruppenId) =>{
+        App.aktiveGruppe = gruppenId
+    this.setState({aktiveGruppe: App.aktiveGruppe})
+    console.debug(this.state.aktiveGruppe)
+}
 
     render = () => {
         return (
@@ -29,7 +45,8 @@ class ShoppingTag extends React.Component {
                         </h2>
                         <dl>
                             {App.gruppenListe.map(gruppe => (
-                                <GruppenTag key={gruppe.id} gruppe={gruppe} erledigt={false}/>
+                                <GruppenTag key={gruppe.id} gruppe={gruppe} erledigt={false}
+                                aktiveGruppeHandler={this.setAktiveGruppe}/>
                             ))}
 
                         </dl>
@@ -43,7 +60,6 @@ class ShoppingTag extends React.Component {
                             {App.gruppenListe.map(gruppe => (
                                 <GruppenTag key={gruppe.id} gruppe={gruppe} erledigt={true}/>
                             ))}
-
                         </dl>
                     </section>
                 </main>
