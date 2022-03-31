@@ -18,6 +18,13 @@ class ShoppingTag extends React.Component {
         }
     }
 
+    artikelChecken = (artikel) =>{
+        artikel.gekauft = !artikel.gekauft
+        this.setState({state: this.state})
+        (<GruppenTag checkHandler={this.artikelChecken}/>)
+
+    }
+
 
     setAktiveGruppe = (gruppenId) =>{
         App.aktiveGruppe = gruppenId

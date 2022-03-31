@@ -1,6 +1,8 @@
 class GruppenTag extends React.Component {
 
-  render = () => {
+
+
+render = () => {
       this.props.gruppe.artikelListe.filter(
           item => item.gekauft === this.props.erledigt
       )

@@ -4,9 +4,6 @@ class ShoppingTag extends React.Component {
         return (
             <div>
 
-
-
-
                 <header>
                     <h1>Einkaufsliste</h1>
                     <nav>
