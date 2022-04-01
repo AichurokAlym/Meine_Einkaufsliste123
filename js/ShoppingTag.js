@@ -14,14 +14,24 @@ class ShoppingTag extends React.Component {
 
 
         this.state = {
-            aktiveGruppe: null
+            aktiveGruppe: grp.id
         }
+    }
+    artikelHinzufuegen = () => {
+        let eingabeFeld = document.getElementById("artikelEingabe")
+        if(eingabeFeld.value.trim().length > 0) {
+            let gruppe = App.gruppeFinden(App.aktiveGruppe)
+            gruppe.artikelHinzufuegen(eingabeFeld.value)
+            this.setState(this.state)
+        }
+        eingabeFeld.value = ""
+        eingabeFeld.focus()
+
     }
 
     artikelChecken = (artikel) =>{
         artikel.gekauft = !artikel.gekauft
-        this.setState({state: this.state})
-        (<GruppenTag checkHandler={this.artikelChecken}/>)
+        this.setState(this.state)
 
     }
 
@@ -39,8 +49,8 @@ class ShoppingTag extends React.Component {
                 <header>
                     <h1>Einkaufsliste</h1>
                     <nav>
-                        <input type="text" placeholder="Artikel hinzufügen"/>
-                        <button className="material-icons">add_circle</button>
+                        <input id= "artikelEingabe" type="text"  placeholder="Artikel hinzufügen"/>
+                        <button className="material-icons" onClick={() => this.artikelHinzufuegen()}>add_circle</button>
                     </nav>
                 </header>
                 <hr/>
@@ -52,8 +62,8 @@ class ShoppingTag extends React.Component {
                         </h2>
                         <dl>
                             {App.gruppenListe.map(gruppe => (
-                                <GruppenTag key={gruppe.id} gruppe={gruppe} erledigt={false}
-                                aktiveGruppeHandler={this.setAktiveGruppe}/>
+                                <GruppenTag aktiv={gruppe.id == this.state.aktiveGruppe} key={gruppe.id} gruppe={gruppe} erledigt={false}
+                                aktiveGruppeHandler={this.setAktiveGruppe} checkHandler={this.artikelChecken}/>
                             ))}
 
                         </dl>
@@ -65,7 +75,8 @@ class ShoppingTag extends React.Component {
                         </h2>
                         <dl>
                             {App.gruppenListe.map(gruppe => (
-                                <GruppenTag key={gruppe.id} gruppe={gruppe} erledigt={true}/>
+                                <GruppenTag aktiv={gruppe.id == this.state.aktiveGruppe} key={gruppe.id} gruppe={gruppe}
+                                            erledigt={true} aktiveGruppeHandler={this.setAktiveGruppe} checkHandler={this.artikelChecken}/>
                             ))}
                         </dl>
                     </section>
