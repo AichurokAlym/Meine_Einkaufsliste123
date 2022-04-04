@@ -84,4 +84,9 @@ footer {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+.gruppenIcon {
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
 

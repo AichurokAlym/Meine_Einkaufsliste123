@@ -6,11 +6,12 @@ class ShoppingTag extends React.Component {
         grp = App.gruppeHinzufuegen("Obst & Gemüse")
         grp.artikelHinzufuegen("Apfel", "Banane")
         grp = App.gruppeHinzufuegen("Getreide produkte")
+        let art = grp.artikelHinzufuegen("Linsen")
+        art.gekauft = true
         grp.artikelHinzufuegen("Brot")
         grp = App.gruppeHinzufuegen("Milchprodukte")
         grp.artikelHinzufuegen("Milch")
-        let art = grp.artikelHinzufuegen("Linsen")
-        art.gekauft = true
+
 
 
         this.state = {
