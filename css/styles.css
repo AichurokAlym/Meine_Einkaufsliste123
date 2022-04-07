@@ -9,19 +9,21 @@
     opacity: 85%;
 }
 :root {
-    --mdc-theme-primary: #33691E;
+    --mdc-theme-primary: rgb(51, 105, 30);
     --mdc-theme-secondary: #827717;
 }
 dt {
-    background-color: #7CB342;
+    background-color: rgb(75, 129, 214);
     color: var(--mdc-theme-on-primary);
 }
 h2, dd {
     background-color: var(--mdc-theme-on-primary);
 }
 
-.aktiv { background-color: #4b81d6 }
-.inaktiv { background-color: #7CB342 }
+.aktiv { background-color: rgb(75, 129, 214)
+}
+.inaktiv { background-color: rgba(91, 90, 90, 0.8)
+}
 h1, h2, dl {
     margin: 0;
 }
