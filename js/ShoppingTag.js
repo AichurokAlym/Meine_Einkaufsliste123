@@ -27,8 +27,8 @@ class ShoppingTag extends React.Component {
     erledigteArtikelAnzeigen = () => {
         let itemsRelevant =[]
         App.gruppenListe.map(gruppe => {
-          let bla = gruppe.artikelListe.filter(item => item.gekauft == true);
-           itemsRelevant = itemsRelevant.concat(bla)
+          let erledigteArtikeln = gruppe.artikelListe.filter(item => item.gekauft == true);
+           itemsRelevant = itemsRelevant.concat(erledigteArtikeln)
            })
         return itemsRelevant
     }
